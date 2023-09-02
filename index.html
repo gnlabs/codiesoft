@@ -733,7 +733,7 @@
   	</div>
   </div> -->
 
-  <section id="modal-section" class="none">
+  <section id="modal-section" class="d-none">
     <div class="popup-outer">
         <div class="popup-box">
             <div class="modal-header justify-content-center">
@@ -797,11 +797,11 @@
 
     function close_modal() {
       modal_section.classList.remove("show");
-      modal_section.classList.add("none");
+      modal_section.classList.add("d-none");
     }
 
     function open_modal(){
-      modal_section.classList.remove("none");
+      modal_section.classList.remove("d-none");
       modal_section.classList.add("show");
     }
 
