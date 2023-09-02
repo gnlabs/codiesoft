@@ -721,12 +721,12 @@
   				<div class="icon-box">
   					<i class="material-icons">&#xE876;</i>
   				</div>
-  				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  				<button type="button" class="close" id="close-modal-top" >&times;</button>
   			</div>
   			<div class="modal-body text-center">
   				<h4 id="modal-title"></h4>	
   				<p id="modal-message"></p>
-  				<button class="btn btn-success" data-dismiss="modal"><span>Close</span> <i class="material-icons">&#xE5C8;</i></button>
+  				<button class="btn btn-success" id="close-modal"><span>Close</span></button>
   			</div>
   		</div>
   	</div>
@@ -771,6 +771,15 @@
     const form = $("#form-submit")
     const submitButton = document.querySelector("#submit")
     var modal = document.getElementById("infoModal");
+    const close_btn = document.getElementById("close-modal");
+    const close_btn_top = document.getElementById("close-modal-top");
+
+    function close_modal() {
+      modal.style.display = "none"
+    }
+
+    close_btn.addEventListener('click', close_modal)
+    close_btn_top.addEventListener('click', close_modal)
 
     form.submit(function(e) {
       submitButton.disabled = true
