@@ -610,32 +610,32 @@
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="text-black" for="fname">First Name</label>
-                  <input type="text" id="fname" class="form-control">
+                  <input type="text" id="fname" class="form-control" required>
                 </div>
                 <div class="col-md-6">
                   <label class="text-black" for="lname">Last Name</label>
-                  <input type="text" id="lname" class="form-control">
+                  <input type="text" id="lname" class="form-control" required>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="email">Email</label>
-                  <input type="email" id="email" class="form-control">
+                  <input type="email" id="email" class="form-control" required>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="subject">Subject</label>
-                  <input type="subject" id="subject" class="form-control">
+                  <input type="subject" id="subject" class="form-control" required>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="message">Message</label>
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control"
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" required
                     placeholder="Write your notes or questions here..."></textarea>
                 </div>
               </div>
@@ -713,6 +713,25 @@
 
   </div> <!-- .site-wrap -->
 
+  <!-- Modal HTML -->
+  <div id="infoModal" class="modal fade">
+  	<div class="modal-dialog modal-confirm">
+  		<div class="modal-content">
+  			<div class="modal-header justify-content-center">
+  				<div class="icon-box">
+  					<i class="material-icons">&#xE876;</i>
+  				</div>
+  				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  			</div>
+  			<div class="modal-body text-center">
+  				<h4 id="modal-title"></h4>	
+  				<p id="modal-message"></p>
+  				<button class="btn btn-success" data-dismiss="modal"><span>Close</span> <i class="material-icons">&#xE5C8;</i></button>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -762,18 +781,23 @@
         subject: document.getElementById('subject').value,
         message: document.getElementById('message').value,
       }
-      console.log(data)
       $.ajax({
         // url: 'https://api.apispreadsheets.com/data/IDpb7585GjqFJq1f/',
         url: 'https://script.google.com/macros/s/AKfycbzCwYKoDFWtMLxrCFbK_olhkcbrniOMe53ws3U181OLPY0-bzLICcNgJJAdsV6xIr3T/exec',
         type: 'post',
         data: data,
         success: function () {
-          alert("Form Data Submitted :)")
+          this.reset()
+          $('#modal-title').html("Success!")
+          $('#modal-message').html("Form Data Submitted :)")
+          $('#infoModal').modal('show');
           submitButton.disabled = false
         },
         error: function () {
-          alert("There was an error :(")
+          this.reset()
+          $('#modal-title').html("Error!")
+          $('#modal-message').html("There was an error :(")
+          $('#infoModal').modal('show');
           submitButton.disabled = false
         }
       });
