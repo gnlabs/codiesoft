@@ -11,6 +11,7 @@
   <meta name="keywords" content="" />
 
   <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="fonts/icomoon/style.css">
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -714,7 +715,7 @@
   </div> <!-- .site-wrap -->
 
   <!-- Modal HTML -->
-  <div id="infoModal" class="modal">
+<!--   <div id="infoModal" class="modal">
   	<div class="modal-dialog modal-confirm">
   		<div class="modal-content">
   			<div class="modal-header justify-content-center">
@@ -730,7 +731,7 @@
   			</div>
   		</div>
   	</div>
-  </div>
+  </div> -->
 
   <section id="modal-section">
     <div class="popup-outer">
@@ -740,9 +741,9 @@
       					<i class="material-icons">&#xE876;</i>
       				</div>
       			</div>
-            <i id="close" class="bx bx-x close"></i>
+            <i id="close-modal-top" class="bx bx-x close"></i>
             <div class="modal-body text-center">
-      				<h4 id="modal-title"></h4>	
+      				<h4 id="modal-title"></h4>
       				<p id="modal-message"></p>
       				<button id="close-modal" class="btn btn-primary btn-md text-white">Cancel</button>
       			</div>
@@ -792,22 +793,7 @@
     var modal = document.getElementById("infoModal");
     const close_btn = document.getElementById("close-modal");
     const close_btn_top = document.getElementById("close-modal-top");
-
     const modal_section = document.querySelector("#modal-section")
-    hireBtn = section.querySelector("#hireBtn")
-    closeBtn = section.querySelectorAll("#close")
-    textArea = section.querySelector("textarea")
-
-    hireBtn.addEventListener("click" , () =>{
-      section.classList.add("show");
-    });
-
-    closeBtn.forEach(cBtn => {
-      cBtn.addEventListener("click" , ()=>{
-          section.classList.remove("show");
-          textArea.value = "";
-      });
-    });
 
     function close_modal() {
       modal_section.classList.remove("show");
@@ -839,14 +825,14 @@
           form.trigger('reset')
           $('#modal-title').html("Success!")
           $('#modal-message').html("Form Data Submitted :)")
-          modal.style.display = "block"
+          open_modal()
           submitButton.disabled = false
         },
         error: function () {
           form.trigger('reset')
           $('#modal-title').html("Error!")
           $('#modal-message').html("There was an error :(")
-          modal.style.display = "none"
+          close_modal()
           submitButton.disabled = false
         }
       });
