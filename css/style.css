@@ -1806,7 +1806,7 @@ h1, h2, h3, h4, h5,
 }
 .modal-confirm .icon-box i {
 	font-size: 64px;
-	margin: -4px 0 0 -4px;
+	margin: -4px 0 0 -10px;
 }
 .modal-confirm.modal-dialog {
 	margin-top: 80px;
