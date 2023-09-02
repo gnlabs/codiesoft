@@ -759,7 +759,7 @@
     const form = $("#form-submit")
     const submitButton = document.querySelector("#submit")
 
-    form.addEventListener('submit', e => {
+    form.submit(functinon(e) {
       submitButton.disabled = true
       e.preventDefault()
       // console.log(form.serializeArray())
