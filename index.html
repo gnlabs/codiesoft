@@ -604,7 +604,6 @@
           <div class="col-md-12 mb-5">
             <!-- action="https://api.apispreadsheets.com/data/IDpb7585GjqFJq1f/" -->
             <form
-              action="https://script.google.com/macros/s/AKfycbzCwYKoDFWtMLxrCFbK_olhkcbrniOMe53ws3U181OLPY0-bzLICcNgJJAdsV6xIr3T/exec"
               id="form-submit" class="p-5 bg-white" method="POST">
               <h2 class="h4 mb-5">Contact Form</h2>
 
@@ -749,35 +748,35 @@
       showCursor: true
     });
 
-    // const data = {
-    //   fname: document.getElementById('fname').value,
-    //   lname: document.getElementById('lname').value,
-    //   email: document.getElementById('email').value,
-    //   subject: document.getElementById('subject').value,
-    //   message: document.getElementById('message').value,
-    // }
-    // const form = $("#form-submit")
-    // const submitButton = document.querySelector("#submit")
+    const data = {
+      fname: document.getElementById('fname').value,
+      lname: document.getElementById('lname').value,
+      email: document.getElementById('email').value,
+      subject: document.getElementById('subject').value,
+      message: document.getElementById('message').value,
+    }
+    const form = $("#form-submit")
+    const submitButton = document.querySelector("#submit")
 
-    // form.submit(function(e) {
-    //   submitButton.disabled = true
-    //   e.preventDefault()
-    //   console.log(form.serializeArray())
-    //   $.ajax({
-    //     // url: 'https://api.apispreadsheets.com/data/IDpb7585GjqFJq1f/',
-    //     url: 'https://script.google.com/macros/s/AKfycbzCwYKoDFWtMLxrCFbK_olhkcbrniOMe53ws3U181OLPY0-bzLICcNgJJAdsV6xIr3T/exec',
-    //     type: 'post',
-    //     data: form.serializeArray(),
-    //     success: function () {
-    //       alert("Form Data Submitted :)")
-    //       submitButton.disabled = false
-    //     },
-    //     error: function () {
-    //       alert("There was an error :(")
-    //       submitButton.disabled = false
-    //     }
-    //   });
-    // })
+    form.submit(function(e) {
+      submitButton.disabled = true
+      e.preventDefault()
+      console.log(new FormData(data))
+      $.ajax({
+        // url: 'https://api.apispreadsheets.com/data/IDpb7585GjqFJq1f/',
+        url: 'https://script.google.com/macros/s/AKfycbzCwYKoDFWtMLxrCFbK_olhkcbrniOMe53ws3U181OLPY0-bzLICcNgJJAdsV6xIr3T/exec',
+        type: 'post',
+        data: form.serializeArray(),
+        success: function () {
+          alert("Form Data Submitted :)")
+          submitButton.disabled = false
+        },
+        error: function () {
+          alert("There was an error :(")
+          submitButton.disabled = false
+        }
+      });
+    })
   </script>
 
   <script src="js/main.js"></script>
