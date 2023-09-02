@@ -1813,7 +1813,6 @@ h1, h2, h3, h4, h5,
 #modal-section .btn, #modal-section .btn:active {
 	color: #fff;
 	border-radius: 4px;
-	background: #eeb711 !important;
 	text-decoration: none;
 	transition: all 0.4s;
 	line-height: normal;
@@ -1823,7 +1822,6 @@ h1, h2, h3, h4, h5,
 	border: none;
 }
 #modal-section .btn:hover, #modal-section .btn:focus {
-	background: #eda645 !important;
 	outline: none;
 }
 #modal-section .btn span {
