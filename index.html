@@ -787,14 +787,14 @@
         type: 'post',
         data: data,
         success: function () {
-          form.reset()
+          form.trigger('reset')
           $('#modal-title').html("Success!")
           $('#modal-message').html("Form Data Submitted :)")
           $('#infoModal').modal('show');
           submitButton.disabled = false
         },
         error: function () {
-          form.reset()
+          form.trigger('reset')
           $('#modal-title').html("Error!")
           $('#modal-message').html("There was an error :(")
           $('#infoModal').modal('show');
