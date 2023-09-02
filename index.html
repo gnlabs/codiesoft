@@ -34,8 +34,6 @@
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
-  <section id="modal-section">
-
   <div class="site-wrap">
 
     <div class="site-mobile-menu site-navbar-target">
@@ -735,7 +733,7 @@
   	</div>
   </div> -->
 
-  
+  <section id="modal-section" class="none">
     <div class="popup-outer">
         <div class="popup-box">
             <div class="modal-header justify-content-center">
@@ -799,9 +797,11 @@
 
     function close_modal() {
       modal_section.classList.remove("show");
+      modal_section.classList.add("none");
     }
 
     function open_modal(){
+      modal_section.classList.remove("none");
       modal_section.classList.add("show");
     }
 
