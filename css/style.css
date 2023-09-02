@@ -1753,19 +1753,7 @@ h1, h2, h3, h4, h5,
 .subcription-form button {
   border-radius: 0px 4px 4px 0px !important; }
 
-.modal-confirm {		
-	color: #434e65;
-	width: 525px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	transition: .3s;
-}
-.modal-confirm .modal-content {
-	padding: 20px;
-	font-size: 16px;
-	border-radius: 5px;
-	border: none;
-}
-.modal-confirm .modal-header {
+#modal-section .modal-header {
 	background: #47c9a2;
 	border-bottom: none;   
 	position: relative;
@@ -1774,16 +1762,17 @@ h1, h2, h3, h4, h5,
 	border-radius: 5px 5px 0 0;
 	padding: 35px;
 }
-.modal-confirm h4 {
+#modal-section h4 {
 	text-align: center;
 	font-size: 36px;
 	margin: 10px 0;
 }
-.modal-confirm .form-control, .modal-confirm .btn {
+#modal-section .form-control, #modal-section .btn {
 	min-height: 40px;
 	border-radius: 3px; 
 }
-.modal-confirm .close {
+
+#modal-section .close {
 	position: absolute;
 	top: 15px;
 	right: 15px;
@@ -1791,10 +1780,10 @@ h1, h2, h3, h4, h5,
 	text-shadow: none;
 	opacity: 0.5;
 }
-.modal-confirm .close:hover {
+#modal-section .close:hover {
 	opacity: 0.8;
 }
-.modal-confirm .icon-box {
+#modal-section .icon-box {
 	color: #fff;		
 	width: 95px;
 	height: 95px;
@@ -1805,14 +1794,14 @@ h1, h2, h3, h4, h5,
 	padding: 15px;
 	text-align: center;
 }
-.modal-confirm .icon-box i {
+#modal-section .icon-box i {
 	font-size: 64px;
 	margin: -4px 0 0 -10px;
 }
-.modal-confirm.modal-dialog {
+#modal-section {
 	margin-top: 80px;
 }
-.modal-confirm .btn, .modal-confirm .btn:active {
+#modal-section .btn, #modal-section .btn:active {
 	color: #fff;
 	border-radius: 4px;
 	background: #eeb711 !important;
@@ -1824,11 +1813,51 @@ h1, h2, h3, h4, h5,
 	padding: 6px 20px;
 	border: none;
 }
-.modal-confirm .btn:hover, .modal-confirm .btn:focus {
+#modal-section .btn:hover, #modal-section .btn:focus {
 	background: #eda645 !important;
 	outline: none;
 }
-.modal-confirm .btn span {
+#modal-section .btn span {
 	margin: 1px 3px 0;
 	float: left;
+}
+
+#modal-section .popup-outer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transform: scale(1.2);
+  transition: all 0.3s ease-in-out;
+}
+#modal-section.show .popup-outer {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+#modal-section .popup-box {
+  position: relative;
+  padding: 30px;
+  max-width: 420px;
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+}
+.popup-box .close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 30px;
+  color: #b4b4b4;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.popup-box .close:hover {
+  color: #333;
 }
