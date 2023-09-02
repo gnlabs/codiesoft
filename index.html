@@ -748,19 +748,20 @@
       showCursor: true
     });
 
-    const data = {
-      fname: document.getElementById('fname').value,
-      lname: document.getElementById('lname').value,
-      email: document.getElementById('email').value,
-      subject: document.getElementById('subject').value,
-      message: document.getElementById('message').value,
-    }
+    
     const form = $("#form-submit")
     const submitButton = document.querySelector("#submit")
 
     form.submit(function(e) {
       submitButton.disabled = true
       e.preventDefault()
+      const data = {
+        fname: document.getElementById('fname').value,
+        lname: document.getElementById('lname').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value,
+      }
       console.log(data)
       $.ajax({
         // url: 'https://api.apispreadsheets.com/data/IDpb7585GjqFJq1f/',
