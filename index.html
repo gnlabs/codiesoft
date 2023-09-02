@@ -732,6 +732,25 @@
   	</div>
   </div>
 
+  <section id="modal-section">
+    <div class="popup-outer">
+        <div class="popup-box">
+            <div class="modal-header justify-content-center">
+      				<div class="icon-box">
+      					<i class="material-icons">&#xE876;</i>
+      				</div>
+      			</div>
+            <i id="close" class="bx bx-x close"></i>
+            <div class="modal-body text-center">
+      				<h4 id="modal-title"></h4>	
+      				<p id="modal-message"></p>
+      				<button id="close-modal" class="btn btn-primary btn-md text-white">Cancel</button>
+      			</div>
+        </div>
+    </div>
+  </section>
+
+
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -774,8 +793,28 @@
     const close_btn = document.getElementById("close-modal");
     const close_btn_top = document.getElementById("close-modal-top");
 
+    const modal_section = document.querySelector("#modal-section")
+    hireBtn = section.querySelector("#hireBtn")
+    closeBtn = section.querySelectorAll("#close")
+    textArea = section.querySelector("textarea")
+
+    hireBtn.addEventListener("click" , () =>{
+      section.classList.add("show");
+    });
+
+    closeBtn.forEach(cBtn => {
+      cBtn.addEventListener("click" , ()=>{
+          section.classList.remove("show");
+          textArea.value = "";
+      });
+    });
+
     function close_modal() {
-      modal.style.display = "none"
+      modal_section.classList.remove("show");
+    }
+
+    function open_modal(){
+      modal_section.classList.add("show");
     }
 
     close_btn.addEventListener('click', close_modal)
