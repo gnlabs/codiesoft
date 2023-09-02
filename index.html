@@ -752,7 +752,7 @@
   <script src="js/TweenMax.min.js"></script>
   <script src="js/OBJLoader.js"></script>
   <script src="js/ParticleHead.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
   <script src="js/jquery.sticky.js"></script>
 
   <script src="js/typed.js"></script>
@@ -770,6 +770,7 @@
     
     const form = $("#form-submit")
     const submitButton = document.querySelector("#submit")
+    var modal = document.getElementById("infoModal");
 
     form.submit(function(e) {
       submitButton.disabled = true
@@ -790,14 +791,14 @@
           form.trigger('reset')
           $('#modal-title').html("Success!")
           $('#modal-message').html("Form Data Submitted :)")
-          $('#infoModal').modal('show')
+          modal.style.display = "block"
           submitButton.disabled = false
         },
         error: function () {
           form.trigger('reset')
           $('#modal-title').html("Error!")
           $('#modal-message').html("There was an error :(")
-          $('#infoModal').modal('show')
+          modal.style.display = "none"
           submitButton.disabled = false
         }
       });
@@ -805,7 +806,6 @@
   </script>
 
   <script src="js/main.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
   </script>
 
 </body>
